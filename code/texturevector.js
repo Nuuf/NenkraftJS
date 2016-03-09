@@ -6,7 +6,6 @@ var nenkraftjs = nenkraftjs || {};
     {
         
     };
-    
     var q = TextureVector.prototype = new nenkraftjs.Texture();
     q.Initialise = function()
     {
@@ -50,8 +49,6 @@ var nenkraftjs = nenkraftjs || {};
     {
         return this.i_LineWidth;
     };
-    
-    
     TextureVector.Create = function()
     {
         var o_TextureVector = new TextureVector();
@@ -62,7 +59,7 @@ var nenkraftjs = nenkraftjs || {};
     {
         var a_Color = this.GetColor(),
         a_Size = this.GetSize(),
-        a_RegisterPoint = this.GetRegisterPoint();
+        a_RegistrationPoint = this.GetRegistrationPoint();
 
         if (a_Color[0] === null && a_Color[1] === null) return;
 
@@ -73,8 +70,8 @@ var nenkraftjs = nenkraftjs || {};
         
         _ctx_Context.rect
         (
-            a_RegisterPoint[0],
-            a_RegisterPoint[1],
+            a_RegistrationPoint[0],
+            a_RegistrationPoint[1],
             a_Size[0],
             a_Size[1]
         );
@@ -87,7 +84,7 @@ var nenkraftjs = nenkraftjs || {};
     {
         var a_Color = this.GetColor(),
             a_Size = this.GetSize(),
-            a_RegisterPoint = this.GetRegisterPoint();
+            a_RegistrationPoint = this.GetRegistrationPoint();
         
         if (a_Color[0] === null && a_Color[1] === null) return;
         
@@ -98,8 +95,8 @@ var nenkraftjs = nenkraftjs || {};
         _ctx_Context.beginPath();
         _ctx_Context.arc
         (
-            a_RegisterPoint[0],
-            a_RegisterPoint[1], 
+            a_RegistrationPoint[0],
+            a_RegistrationPoint[1], 
             a_Size[2], 
             0, 
             Math.PI2,
@@ -109,6 +106,5 @@ var nenkraftjs = nenkraftjs || {};
         if (a_Color[1] !== null) _ctx_Context.stroke();
         _ctx_Context.closePath();
     };
-    
     nenkraftjs.TextureVector = TextureVector;
 }());

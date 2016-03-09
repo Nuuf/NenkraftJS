@@ -142,6 +142,11 @@ var nenkraftjs = nenkraftjs || {};
         this.f_TorquePower = _f_TorquePower;
         return this;    
     };
+    q.SetTorqueEaseFunction = function(_fn_TorqueEase)
+    {
+        this.fn_TorqueEase = _fn_TorqueEase;
+        return this;  
+    };
     q.SetMagnet = function(_o_Magnet)
     {
         this.o_Magnet = _o_Magnet;

@@ -23,10 +23,10 @@ var nenkraftjs = nenkraftjs || {};
     };
     q.Render = function(_ctx_Context)
     {
-        var a_RegisterPoint = this.GetRegisterPoint();
+        var a_RegistrationPoint = this.GetRegistrationPoint();
          _ctx_Context.fillStyle = this.s_Color;
          _ctx_Context.font = this.s_Font;
-         _ctx_Context.fillText(this.s_String, a_RegisterPoint[0], a_RegisterPoint[1]);
+         _ctx_Context.fillText(this.s_String, a_RegistrationPoint[0], a_RegistrationPoint[1]);
     };
     q.SetString = function(_s_String)
     {
@@ -55,13 +55,11 @@ var nenkraftjs = nenkraftjs || {};
     {
         return this.s_Color;
     };
-    
     TextureText.Create = function()
     {
          var o_TextureText = new TextureText();
          o_TextureText.Initialise();
          return o_TextureText;
     };
-    
     nenkraftjs.TextureText = TextureText;
 }());

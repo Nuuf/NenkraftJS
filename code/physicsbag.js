@@ -28,7 +28,7 @@ var nenkraftjs = nenkraftjs || {};
         );
         if (this.GetDebugDraw()) b2d_World.DrawDebugData();
         b2d_World.ClearForces(); 
-        var a_Entity = this.GetEntitys(),
+        var a_Entity = this.GetEntities(),
             i_Length = a_Entity.length,
             i_Inc = 0,
             o_Entity = null;
@@ -58,7 +58,7 @@ var nenkraftjs = nenkraftjs || {};
         if (_b_DebugDraw === true)
         {
             var b2d_DebugDraw = new Box2D.Dynamics.b2DebugDraw();
-            b2d_DebugDraw.SetEntity(nenkraftjs.Vault.GetContext());
+            b2d_DebugDraw.SetSprite(nenkraftjs.Vault.GetContext());
             b2d_DebugDraw.SetDrawScale(50.0);
             b2d_DebugDraw.SetFillAlpha(0.3);
             b2d_DebugDraw.SetLineThickness(1.0);

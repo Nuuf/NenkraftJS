@@ -19,7 +19,7 @@ var nenkraftjs = nenkraftjs || {};
     {
         var a_Size = this.GetSize(),
             a_ImgClipRectangle = this.GetImgClipRectangle(),
-            a_RegisterPoint = this.GetRegisterPoint();
+            a_RegistrationPoint = this.GetRegistrationPoint();
         _ctx_Context.drawImage
         (
             this.o_Img,
@@ -27,8 +27,8 @@ var nenkraftjs = nenkraftjs || {};
             a_ImgClipRectangle[1],
             a_ImgClipRectangle[2],
             a_ImgClipRectangle[3],
-            a_RegisterPoint[0],
-            a_RegisterPoint[1],
+            a_RegistrationPoint[0],
+            a_RegistrationPoint[1],
             a_Size[0],
             a_Size[1]  
         );
@@ -44,7 +44,7 @@ var nenkraftjs = nenkraftjs || {};
             this.i_Columns = _i_Columns;
             this.SetSize([i_Width, i_Height]);
             this.SetImgClipRectangle([0,0,i_Width,i_Height]);
-            this.SetRegisterPoint([-i_Width * 0.5, -i_Height * 0.5]);
+            this.SetRegistrationPoint([-i_Width * 0.5, -i_Height * 0.5]);
         }
         else
         {
@@ -93,7 +93,6 @@ var nenkraftjs = nenkraftjs || {};
         this.a_ImgClipRectangle[3] = _i_Height;
         return this;
     };
-    
     q.GetImage = function()
     {
         return this.o_Img;
@@ -118,13 +117,11 @@ var nenkraftjs = nenkraftjs || {};
     {
         return this.a_ImgClipRectangle[3];
     };
-    
     TextureImage.Create = function()
     {
         var o_TextureImage = new TextureImage();
         o_TextureImage.Initialise();
         return o_TextureImage;
     };
-    
     nenkraftjs.TextureImage = TextureImage;
 }());

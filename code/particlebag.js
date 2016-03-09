@@ -14,7 +14,7 @@ var nenkraftjs = nenkraftjs || {};
     };
     q.Process = function(_i_Delta)
     {
-        var a_Particle = this.GetEntitys(),
+        var a_Particle = this.GetEntities(),
             i_Length = a_Particle.length,
             i_Inc = 0,
             o_Particle = null;

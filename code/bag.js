@@ -27,7 +27,7 @@ var nenkraftjs = nenkraftjs || {};
         _ctx_Context.translate(a_Position[0] + a_Offset[0], a_Position[1] + a_Offset[1]);
         if (f_Rotation !== 0) _ctx_Context.rotate(f_Rotation);
         if (a_Scale[0] !== 0 && a_Scale[1] !== 0) _ctx_Context.scale(a_Scale[0], a_Scale[1]);
-        var a_Entity = this.GetEntitys(),
+        var a_Entity = this.GetEntities(),
             i_Length = a_Entity.length,
             i_Inc = 0,
             o_Entity = null;
@@ -52,7 +52,7 @@ var nenkraftjs = nenkraftjs || {};
     {
         this.a_Entity.splice2(_o_Entity);
     };
-    q.GetEntitys = function()
+    q.GetEntities = function()
     {
         return this.a_Entity;  
     };

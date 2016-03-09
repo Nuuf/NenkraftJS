@@ -6,6 +6,11 @@ Math.randomBetween = function(min,max,floor)
 	if (floor) n = Math.floor(n);
 	return(n);
 };
+Math.thisOrThat = function(one, two)
+{
+    if (Math.random() > 0.5) return one;
+    return two;
+};
 Math.delta = function(p1,p2)
 {
 	if (p1 instanceof Array && p2 instanceof Array)

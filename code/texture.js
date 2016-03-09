@@ -5,19 +5,18 @@ var nenkraftjs = nenkraftjs || {};
     var Texture = function()
     {
         
-    }
-    
+    };
     var q = Texture.prototype;
     q.Initialise = function()
     {
         this.s_ID = null;
         this.a_Size = [0,0,0];
-        this.a_RegisterPoint = [0,0];
+        this.a_RegistrationPoint = [0,0];
     };
     q.Render = function(_ctx_Context){};
-    q.SetRenderingFunction = function(_f_RenderingFunction)
+    q.SetRenderingFunction = function(_fn_RenderingFunction)
     {
-        this.Render = _f_RenderingFunction;
+        this.Render = _fn_RenderingFunction;
         return this;  
     };
     q.SetID = function(_s_ID)
@@ -45,19 +44,19 @@ var nenkraftjs = nenkraftjs || {};
         this.a_Size[2] = _i_Radius;
         return this;
     }
-    q.SetRegisterPoint = function(_a_RegisterPoint)
+    q.SetRegistrationPoint = function(_a_RegistrationPoint)
     {
-        this.a_RegisterPoint = _a_RegisterPoint;
+        this.a_RegistrationPoint = _a_RegistrationPoint;
         return this;  
     };
-    q.SetRegisterPointX = function(_i_X)
+    q.SetRegistrationPointX = function(_i_X)
     {
-        this.a_RegisterPoint[0] = _i_X;
+        this.a_RegistrationPoint[0] = _i_X;
         return this;  
     };
-    q.SetRegisterPointY = function(_i_Y)
+    q.SetRegistrationPointY = function(_i_Y)
     {
-        this.a_RegisterPoint[1] = _i_Y;
+        this.a_RegistrationPoint[1] = _i_Y;
         return this;  
     };
     q.GetID = function()
@@ -80,25 +79,23 @@ var nenkraftjs = nenkraftjs || {};
     {
         return this.a_Size[2];  
     };
-    q.GetRegisterPoint = function()
+    q.GetRegistrationPoint = function()
     {
-        return this.a_RegisterPoint;
+        return this.a_RegistrationPoint;
     };
-    q.GetRegisterPointX = function()
+    q.GetRegistrationPointX = function()
     {
-        return this.a_RegisterPoint[0];
+        return this.a_RegistrationPoint[0];
     };
-    q.GetRegisterPointY = function()
+    q.GetRegistrationPointY = function()
     {
-        return this.a_RegisterPoint[1];
+        return this.a_RegistrationPoint[1];
     };
-    
     Texture.Create = function()
     {
         var o_Texture = new Texture();
         o_Texture.Initialise();
         return o_Texture;
     };
-    
     nenkraftjs.Texture = Texture;
 }());

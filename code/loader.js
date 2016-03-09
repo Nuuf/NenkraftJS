@@ -11,7 +11,6 @@ var nenkraftjs = nenkraftjs || {};
     };
     Loader.LoadImages = function(_a_Item, _f_Loaded)
     {
-        //var i_Length = _a_Item.length;
         function LoadImage(_i_Count)
         {
             

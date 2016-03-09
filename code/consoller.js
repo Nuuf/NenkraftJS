@@ -3,7 +3,6 @@ var nenkraftjs = nenkraftjs || {};
 {
     "use strict";
     var p_b_Log = true;
-    
     var Log = function(_o_Object, _s_Type)
     {
         if (p_b_Log === true)

@@ -35,8 +35,6 @@ var nenkraftjs = nenkraftjs || {};
             this.SetRotation(f_Rotation);
         }
     };
-    
-    
     q.SetDefinition = function(_a_Size, _a_Position, _i_Shape, _i_Type, _f_Density, _f_Friction, _f_Restitution)
     {
         var f_Scale = nenkraftjs.PhysicsBag.Scale,
@@ -58,8 +56,7 @@ var nenkraftjs = nenkraftjs || {};
         o_FixtureDef.friction = _f_Friction || o_FixtureDef.friction;
         o_FixtureDef.restitution = _f_Restitution || o_FixtureDef.restitution;
         return this;
-    };
-    
+    }; 
     q.SetFixtureDef = function(_b2d_FixtureDef)
     {
         this.b2d_FixtureDef = _b2d_FixtureDef;
@@ -90,7 +87,6 @@ var nenkraftjs = nenkraftjs || {};
     {
         return this.b2d_BodyDef;
     };
-    
     PhysicsEntity.Create = function()
     {
         var o_PhysicsEntity = new PhysicsEntity();
@@ -108,7 +104,5 @@ var nenkraftjs = nenkraftjs || {};
         Kinematic: 1,
         Dynamic: 2
     };
-    
-    
     nenkraftjs.PhysicsEntity = PhysicsEntity;
 }());

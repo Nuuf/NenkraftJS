@@ -6,7 +6,6 @@ var nenkraftjs = nenkraftjs || {};
     {
         
     };
-    
     var q = NenObject.prototype;
     q.Initialise = function()
     {

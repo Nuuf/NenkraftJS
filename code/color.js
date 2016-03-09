@@ -42,6 +42,15 @@ var nenkraftjs = nenkraftjs || {};
         
         return(s_Color);
     };
+    Color.MixGrey = function(_MAX, _MIN)
+    {
+        _MAX = _MAX || 15;
+        _MIN = _MIN || 0;
+        var s_Hex = Math.randomBetween(_MIN, _MAX, true).toHex();
+            s_Hex += Math.randomBetween(_MIN, _MAX, true).toHex();
+        var s_Color = '#' + s_Hex + s_Hex + s_Hex;
+        return s_Color; 
+    };
     Color.MixRed = function()
     {
         return Color.Mix({_G1: 0, _G2: 0, _B1: 0, _B2: 0});

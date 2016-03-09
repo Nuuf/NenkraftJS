@@ -11,12 +11,10 @@ var nenkraftjs = nenkraftjs || {};
         nenkraftjs.Log('...', 'warning');
         throw '[Cannot be instantiated]';
     };
-    
     Vault.SetContainer = function(_o_Container)
     {
         p_o_Container = _o_Container;
     };
-    
     Vault.SetCurrentCanvas = function(_s_ID)
     {
         var i_Length = p_a_Canvas.length,
@@ -36,11 +34,10 @@ var nenkraftjs = nenkraftjs || {};
     };
     Vault.ClearCurrentCanvas = function()
     {
-        var o_Canvas = this.GetCurrentCanvas();
-        var ctx_Context = this.GetContext();  
+        var o_Canvas = Vault.GetCurrentCanvas();
+        var ctx_Context = Vault.GetContext();  
         ctx_Context.clearRect(0, 0, o_Canvas.width, o_Canvas.height);
     };
-    
     Vault.CreateCanvas = function(_s_ID, _s_ContainerID, _i_Width, _i_Height)
     {
         var o_Canvas = document.createElement('canvas');
@@ -53,7 +50,6 @@ var nenkraftjs = nenkraftjs || {};
         p_o_CurrentCanvas = o_Canvas;
         return(o_Canvas);
     };
-    
     Vault.DeleteCanvas = function(_s_ID)
     {
         var i_Length = p_a_Canvas.length,
@@ -68,7 +64,6 @@ var nenkraftjs = nenkraftjs || {};
                 if (o_Canvas === p_o_CurrentCanvas) p_o_CurrentCanvas = null;
                 p_a_Canvas.splice(i_Inc, 1);
                 o_Canvas.parentElement.removeChild(o_Canvas);
-                o_Canvas = null;
                 return;
             }
         }
@@ -80,7 +75,19 @@ var nenkraftjs = nenkraftjs || {};
         p_o_CurrentCanvas.parentElement.removeChild(p_o_CurrentCanvas);
         p_o_CurrentCanvas = null;
     };
-    
+    Vault.Empty = function()
+    {
+        var i_Length = p_a_Canvas.length,
+            i_Inc = 0,
+            o_Canvas = null;
+        
+        for (i_Inc; i_Inc < i_Length; ++i_Inc)
+        {
+            o_Canvas = p_a_Canvas[i_Inc];
+            o_Canvas.parentElement.removeChild(o_Canvas);
+        }
+        p_a_Canvas = [];
+    };
     Vault.GetCanvas = function(_s_ID)
     {
         var i_Length = p_a_Canvas.length,
@@ -94,6 +101,11 @@ var nenkraftjs = nenkraftjs || {};
         }
         throw '[Not found]';
     };
+    Vault.GetAll = function()
+    {
+        if (p_a_Canvas.length === 0) nenkraftjs.Log('Empty');
+        return p_a_Canvas;  
+    };
     Vault.GetCurrentCanvas = function()
     {
         if (p_o_CurrentCanvas === undefined || p_o_CurrentCanvas === null)
@@ -103,11 +115,9 @@ var nenkraftjs = nenkraftjs || {};
         } 
         return p_o_CurrentCanvas;
     };
-    
     Vault.GetContext = function()
     {
          return this.GetCurrentCanvas().getContext('2d');
     };
-    
     nenkraftjs.Vault = Vault;
 }());
