@@ -11,6 +11,12 @@ Math.thisOrThat = function(one, two)
     if (Math.random() > 0.5) return one;
     return two;
 };
+Math.minMaxOrValue = function(value, min , max)
+{
+	if (value > max) return max;
+	else if (value < min) return min;
+	else return value;
+};
 Math.delta = function(p1,p2)
 {
 	if (p1 instanceof Array && p2 instanceof Array)
