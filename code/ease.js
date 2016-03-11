@@ -38,6 +38,6 @@ var nenkraftjs = nenkraftjs || {};
         Ease.CubicInOut,
         Ease.CubicIn,
         Ease.SinWave,
-        Ease.SinInOut,
+        Ease.SinInOut
     ];
 }());

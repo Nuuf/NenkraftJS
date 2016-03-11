@@ -35,7 +35,11 @@ var nenkraftjs = nenkraftjs || {};
         for (i_Inc; i_Inc < i_Length; ++i_Inc)
         {
             o_Entity = a_Entity[i_Inc];
-            if (o_Entity) o_Entity.Process(_i_Delta);
+            if (o_Entity)
+            {
+                if (o_Entity.Process instanceof Function === false) continue;
+                o_Entity.Process(_i_Delta);
+            }
         }
     };
     q.AddEntity = function(_o_Entity)
