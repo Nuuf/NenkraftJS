@@ -135,6 +135,27 @@ for (i; i < a; ++i)
 	degs[i] = Math.spread(start, amount, spread, i);
 }
 */
+Math.grid = function(ow, oh, tw, th, sx, sy)
+{
+	var mx = ow,
+		my = oh,
+		cols = tw / mx,
+		rws = th / my,
+		l = cols * rows,
+		i = 0,
+		tx = 0,
+		ty = 0;
+		
+	var grid = [];
+	for (i; i < l; ++i)
+	{
+		tx = (sx + mx * 0.5) + (i % cols) * mx;
+		ty = (sy + my * 0.5) + Math.floor(i / cols) * my;
+		grid.push([tx, ty]);
+	}
+	return grid;
+};
+
 
 Math.PI2 = Math.PI * 2;
 
