@@ -30,7 +30,7 @@ var nenkraftjs = nenkraftjs || {};
                 return;
             }
         }
-        throw '[Not found]';
+        return false;
     };
     Vault.ClearCurrentCanvas = function()
     {
@@ -67,7 +67,7 @@ var nenkraftjs = nenkraftjs || {};
                 return;
             }
         }
-        throw '[Not found]';
+        return false;
     };
     Vault.DeleteCurrentCanvas = function()
     {
@@ -99,7 +99,7 @@ var nenkraftjs = nenkraftjs || {};
             o_Canvas = p_a_Canvas[i_Inc];
             if (o_Canvas.id === _s_ID) return o_Canvas;
         }
-        throw '[Not found]';
+        return false;
     };
     Vault.GetAll = function()
     {
@@ -110,8 +110,7 @@ var nenkraftjs = nenkraftjs || {};
     {
         if (p_o_CurrentCanvas === undefined || p_o_CurrentCanvas === null)
         {
-            nenkraftjs.Log('...', 'warning');
-            throw '[There is no current Canvas]';
+            return false;
         } 
         return p_o_CurrentCanvas;
     };
