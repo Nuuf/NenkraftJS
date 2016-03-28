@@ -111,5 +111,10 @@ var nenkraftjs = nenkraftjs || {};
     {
         return Color.Mix({_G1: 1, _G2: 1, _R1: 1, _R2: 1});
     };
+	Color.Convert = function(_s_Color)
+	{
+		var s_Color = _s_Color.toHex();
+		return '#'+('000000'.substr(0,6-s_Color.length) + s_Color.toLowerCase());
+	};
     nenkraftjs.Color = Color;
 }());
