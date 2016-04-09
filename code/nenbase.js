@@ -165,6 +165,17 @@ Array.prototype.splice2 = function(item)
     if (i > -1) this.splice(i, 1);
     else return null;
 };
+Array.prototype.shuffle = function()
+{
+	var i, j, x;
+	for (i = this.length; i; i--)
+	{
+		j = Math.floor(Math.random() * i);
+		x = this[i - 1];
+		this[i - 1] = this[j];
+		this[j] = x;
+	}
+};
 Number.prototype.toHex = function()
 {
     return this.toString(16);  
