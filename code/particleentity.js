@@ -37,7 +37,7 @@ var nenkraftjs = nenkraftjs || {};
         this.f_Spin = 0.0;
         this.f_Shrowth = 0.0;
         this.f_Torque = 0.0;
-        this.f_TorquePower = 0.0;
+        this.f_TorqueAcceleration = 0.0;
         this.f_Wavetime = 0;
         this.fn_TorqueEase = null;
     };
@@ -51,7 +51,7 @@ var nenkraftjs = nenkraftjs || {};
             o_Magnet = this.GetMagnet(),
             a_MagneticPoint = this.GetMagneticPoint(),
             i_Duration = this.GetDuration(),
-            f_TorquePower = this.GetTorquePower(),
+            f_TorquePower = this.GetTorqueAcceleration(),
             f_Wavetime = this.GetWavetime(),
             f_Shrowth = this.GetShrowth();
             
@@ -71,7 +71,7 @@ var nenkraftjs = nenkraftjs || {};
         if (a_MagneticPoint !== null) PrivateMagnetCalculation(a_MagneticPoint, this.GetPosition(), a_NewVelocity, this.GetMagneticRadius(), this.GetMagneticStrength());
         else if (o_Magnet !== null) PrivateMagnetCalculation(o_Magnet.GetPosition(), this.GetPosition(), a_NewVelocity, this.GetMagneticRadius(), this.GetMagneticStrength());
         
-        if (this.fn_TorqueEase instanceof Function) this.SetTorque(this.fn_TorqueEase(f_Wavetime, -f_TorquePower, f_TorquePower, i_Duration));
+        if (this.fn_TorqueEase instanceof Function) this.SetTorque(this.fn_TorqueEase(f_Wavetime, -f_TorqueAcceleration, f_TorqueAcceleration, i_Duration));
         if (this.GetTorque() !== 0) a_NewVelocity = Math.rotateVectorRelative(a_NewVelocity, Math.degtorad(this.GetTorque()));
         
         a_Velocity[0] = a_NewVelocity[0];
@@ -137,9 +137,9 @@ var nenkraftjs = nenkraftjs || {};
         this.f_Torque = _f_Torque;
         return this;  
     };
-    q.SetTorquePower = function(_f_TorquePower)
+    q.SetTorqueAcceleration = function(_f_TorqueAcceleration)
     {
-        this.f_TorquePower = _f_TorquePower;
+        this.f_TorqueAcceleration = _f_TorqueAcceleration;
         return this;    
     };
     q.SetTorqueEaseFunction = function(_fn_TorqueEase)
@@ -221,9 +221,9 @@ var nenkraftjs = nenkraftjs || {};
     {
         return this.f_Torque;  
     };
-    q.GetTorquePower = function()
+    q.GetTorqueAcceleration = function()
     {
-        return this.f_TorquePower;
+        return this.f_TorqueAcceleration;
     };
     q.GetMagnet = function()
     {

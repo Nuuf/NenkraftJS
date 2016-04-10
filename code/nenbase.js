@@ -11,11 +11,11 @@ Math.thisOrThat = function(one, two)
     if (Math.random() > 0.5) return one;
     return two;
 };
-Math.clamp = function(value, min , max)
+Math.clamp = function(v, min , max)
 {
-	if (value < min) return min;
-	else if (value > max) return max;
-	else return value;
+	if (v < min) return min;
+	else if (v > max) return max;
+	else return v;
 };
 Math.delta = function(p1,p2)
 {
@@ -159,6 +159,7 @@ Math.grid = function(ow, oh, tw, th, sx, sy)
 
 Math.PI2 = Math.PI * 2;
 
+
 Array.prototype.splice2 = function(item)
 {
     var i = this.indexOf(item);
@@ -192,3 +193,58 @@ function isFloat(val)
 {
     return Number(val) === val && val % 1 !== 0;
 }
+var nestedAccess = 
+{
+	set: function(o, s, v)
+	{
+		var k = s.split('.'),
+		i = 0,
+		l = k.length-1,
+		to = o;
+		for (i; i <= l ; i++) 
+		{
+			if (i === l)
+			{
+				if(to[k[i]])
+				{
+					to[k[i]] = v;
+				}
+				else
+				{
+					to[k[i]] = v;
+				}
+			}
+			else
+			{
+				if(to[k[i]])
+				{
+					to = to[k[i]];
+				}
+				else
+				{
+					to = to[k[i]] = {};
+				}
+			}
+		}
+		return o;
+	},
+	get: function(o, s)
+	{
+		var k = s.split('.'),
+		i = 0,
+		l = k.length-1,
+		to = o;
+		for (i; i <= l ; i++)
+		{
+			if(to[k[i]])
+			{
+				to = to[k[i]];
+			}
+			else
+			{	
+				break;
+			}
+		}
+		return to;
+	}
+};
